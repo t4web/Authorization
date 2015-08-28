@@ -1,0 +1,47 @@
+<?php /* @var \T4webAuthorization\Controller\ViewModel\User\IndexViewModel $viewModel */ ?>
+<?php $viewModel = $this->viewModel()->getCurrent(); ?>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="hidden-xs">
+            <h1 class="text-center margin-top-2em">Добро пожаловать</h1>
+        </div>
+        <div class="hidden-sm hidden-md hidden-lg">
+            <h1 class="text-center ">Добро пожаловать</h1>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-3 col-sm-1 col-xs-1"></div>
+        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 center-block">
+
+            <form action="<?=$this->url('login');?>" method="post">
+                <div class="form-group <?= ($viewModel->getForm()->getMessages('uname')) ? 'has-error' : ''; ?>">
+                    <?= $this->formText($viewModel->getForm('uname')); ?>
+                    <?= $this->formElementErrors($viewModel->getForm('uname'), array('class' => 'help-block')); ?>
+                </div>
+
+                <div class="form-group <?= ($viewModel->getForm()->getMessages('password')) ? 'has-error' : ''; ?>">
+                    <?= $this->formPassword($viewModel->getForm('password')); ?>
+                    <?= $this->formElementErrors($viewModel->getForm('password'), array('class' => 'help-block')); ?>
+                </div>
+
+                <div class="hidden-xs">
+                    <div class="form-group <?= ($viewModel->getForm()->getMessages('rememberMe')) ? 'has-error' : ''; ?>">
+                        <div class="checkbox">
+                            <label>
+                                <?= $this->formCheckbox($viewModel->getForm('rememberMe')); ?>
+                                Запомнить меня
+
+                                <?= $this->formElementErrors($viewModel->getForm('rememberMe'), ['class' => 'help-block']); ?>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success btn-block">Вход</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-3 col-sm-1 col-xs-1"></div>
+</div>

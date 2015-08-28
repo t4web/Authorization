@@ -1,0 +1,53 @@
+{
+    "name": "t4web/authorization",
+    "description": "ZF2 Module for user authorization.",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "zf2"
+    ],
+    "homepage": "https://github.com/t4web/Pages",
+    "authors": [
+        {
+            "name": "Max Gulturyan",
+            "email": "gulturyan@gmail.com",
+            "homepage": "http://about.me/maxgu"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/t4web/actioninjections.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/t4web/base.git"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.42",
+        "zendframework/zend-authentication": "~2.5.0",
+        "zendframework/zend-console": "~2.5.0",
+        "zendframework/zend-db": "~2.5.0",
+        "zendframework/zend-eventmanager": "~2.5.0",
+        "zendframework/zend-form": "~2.5.0",
+        "zendframework/zend-modulemanager": "~2.5.0",
+        "zendframework/zend-mvc": "~2.5.0",
+        "zendframework/zend-servicemanager": "~2.5.0",
+        "zendframework/zend-view": "~2.5.0",
+
+        "t4web/actioninjections": "dev-master",
+        "t4web/base": "dev-master"
+    },
+    "require-dev" : {
+        "codeception/codeception": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "T4webAuthorization": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
