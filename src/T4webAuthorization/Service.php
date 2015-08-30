@@ -94,7 +94,7 @@ class Service
     /**
      * @return int
      */
-    public function getUserId()
+    public function getId()
     {
         $storage = $this->authService->getStorage()->read();
 
