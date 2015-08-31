@@ -25,18 +25,12 @@ class InitController extends AbstractActionController implements AdapterAwareInt
     {
         echo "Create table" . PHP_EOL;
 
-        $message = "Success completed" . PHP_EOL;
+        $result = $this->createTable();
 
-        try {
-            $this->createAuthTable();
-        } catch (\PDOException $e) {
-            $message .= $e->getMessage() . PHP_EOL;
-        }
-
-        return $message;
+        return $result === true ? "Success completed" . PHP_EOL : '';
     }
 
-    private function createAuthTable()
+    private function createTable()
     {
         $table = 'auth';
 
@@ -49,8 +43,16 @@ class InitController extends AbstractActionController implements AdapterAwareInt
         $table->addConstraint(new Constraint\PrimaryKey('id'));
         $table->addConstraint(new Constraint\UniqueKey('uname'));
 
-        $sql = new Sql($this->adapter);
+        try {
+            $sql = new Sql($this->adapter);
 
-        $this->adapter->query($sql->buildSqlString($table), Adapter::QUERY_MODE_EXECUTE);
+            $this->adapter->query($sql->buildSqlString($table), Adapter::QUERY_MODE_EXECUTE);
+        } catch (\PDOException $e) {
+            echo $e->getMessage() . PHP_EOL;
+
+            return false;
+        }
+
+        return true;
     }
 }

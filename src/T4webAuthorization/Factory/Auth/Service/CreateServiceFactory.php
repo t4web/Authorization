@@ -1,10 +1,10 @@
 <?php
 
-namespace Authorization\Factory\Auth\Service;
+namespace T4webAuthorization\Factory\Auth\Service;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use Authorization\Auth\Service\Create;
+use T4webAuthorization\Auth\Service\Create;
 
 class CreateServiceFactory implements FactoryInterface
 {
@@ -12,13 +12,13 @@ class CreateServiceFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceManager)
     {
         $eventManager = $serviceManager->get('EventManager');
-        $eventManager->addIdentifiers('Authorization\Auth\Service\Create');
+        $eventManager->addIdentifiers('T4webAuthorization\Auth\Service\Create');
 
         $service = new Create(
-            $serviceManager->get('Authorization\Auth\InputFilter\Create'),
-            $serviceManager->get('Authorization\Auth\Repository\DbRepository'),
-            $serviceManager->get('Authorization\Auth\Factory\EntityFactory'),
-            $serviceManager->get('Authorization\Service'),
+            $serviceManager->get('T4webAuthorization\Auth\InputFilter\Create'),
+            $serviceManager->get('T4webAuthorization\Auth\Repository\DbRepository'),
+            $serviceManager->get('T4webAuthorization\Auth\Factory\EntityFactory'),
+            $serviceManager->get('T4webAuthorization\Service'),
             $eventManager
         );
 

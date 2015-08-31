@@ -123,7 +123,7 @@ return [
             'changePasswordAction' => [
                 'request',
                 'Authorization\Auth\Form\ChangePassword',
-                'Users\User\Service\Finder',
+                'T4webUsers\User\Service\Finder',
                 'Authorization\Auth\Service\PasswordRemind',
                 function ($serviceLocator) {
                     return $serviceLocator->get('ControllerPluginManager')->get('redirect');
@@ -150,7 +150,7 @@ return [
     ],
     'db' => [
         'tables' => [
-            'authorization-auth' => [
+            't4webauthorization-auth' => [
                 'name' => 'auth',
                 'columnsAsAttributesMap' => [
                     'id' => 'id',

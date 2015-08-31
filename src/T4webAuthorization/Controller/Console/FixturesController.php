@@ -22,15 +22,9 @@ class FixturesController extends AbstractActionController implements AdapterAwar
     {
         echo "Run data fixtures" . PHP_EOL;
 
-        $message = "Fixtures success completed" . PHP_EOL;
+        $result = $this->createRootUser();
 
-        try {
-            $this->createRootUser();
-        } catch (\PDOException $e) {
-            $message .= $e->getMessage() . PHP_EOL;
-        }
-
-        return $message;
+        return $result === true ? "Fixtures success completed" . PHP_EOL : '';
     }
 
     private function createRootUser()
@@ -50,20 +44,30 @@ class FixturesController extends AbstractActionController implements AdapterAwar
             ->query($sql->buildSqlString($select), Adapter::QUERY_MODE_EXECUTE)
             ->count();
 
-        // create in auth table
-        if (empty($result)) {
-            $insert = $sql->insert($table);
-
-            $insert->values(
-                [
-                    'id' => $id,
-                    'uname' => $uname,
-                    'password' => $password,
-                ]
-            );
-
-            $this->adapter->query($sql->buildSqlString($insert), Adapter::QUERY_MODE_EXECUTE);
+        if(!empty($result)) {
+            echo "Auth fixtures already exists" . PHP_EOL;
+            return true;
         }
+
+        $insert = $sql->insert($table);
+
+        $insert->values(
+            [
+                'id' => $id,
+                'uname' => $uname,
+                'password' => $password,
+            ]
+        );
+
+        try {
+            $this->adapter->query($sql->buildSqlString($insert), Adapter::QUERY_MODE_EXECUTE);
+        } catch (\PDOException $e) {
+            echo $e->getMessage() . PHP_EOL;
+
+            return false;
+        }
+
+        return true;
 
     }
 }

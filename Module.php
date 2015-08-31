@@ -113,9 +113,9 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Co
                 'T4webAuthorization\Auth\Form\Login' => 'T4webAuthorization\Factory\Auth\Form\LoginFactory',
                 'T4webAuthorization\Auth\InputFilter\Element\Uname' => 'T4webAuthorization\Factory\Auth\InputFilter\Element\UnameFactory',
 
-                'Authorization\Auth\Service\Create' => 'Authorization\Factory\Auth\Service\CreateServiceFactory',
-                'Authorization\Auth\Service\Update' => 'Authorization\Factory\Auth\Service\UpdateServiceFactory',
-                'Authorization\Auth\Service\Finder' => 'Authorization\Factory\Auth\Service\FinderServiceFactory',
+                'T4webAuthorization\Auth\Service\Create' => 'T4webAuthorization\Factory\Auth\Service\CreateServiceFactory',
+                'T4webAuthorization\Auth\Service\Update' => 'T4webAuthorization\Factory\Auth\Service\UpdateServiceFactory',
+                'T4webAuthorization\Auth\Service\Finder' => 'T4webAuthorization\Factory\Auth\Service\FinderServiceFactory',
                 'Authorization\Auth\Service\PasswordRemind' => 'Authorization\Factory\Auth\Service\PasswordRemindServiceFactory',
                 'Authorization\Auth\Form\ChangePassword' => 'Authorization\Factory\Auth\Form\ChangePasswordFactory',
 

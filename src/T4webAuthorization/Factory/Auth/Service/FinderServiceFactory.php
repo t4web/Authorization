@@ -1,6 +1,6 @@
 <?php
 
-namespace Authorization\Factory\Auth\Service;
+namespace T4webAuthorization\Factory\Auth\Service;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -14,8 +14,8 @@ class FinderServiceFactory implements FactoryInterface
     {
 
         $service = new Finder(
-            $serviceManager->get('Authorization\Auth\Repository\DbRepository'),
-            $serviceManager->get('Authorization\Auth\Criteria\CriteriaFactory')
+            $serviceManager->get('T4webAuthorization\Auth\Repository\DbRepository'),
+            $serviceManager->get('T4webAuthorization\Auth\Criteria\CriteriaFactory')
         );
 
         return $service;
