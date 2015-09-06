@@ -1,6 +1,6 @@
 <?php
 
-namespace Authorization\Auth\Service;
+namespace T4webAuthorization\Auth\Service;
 
 use Zend\EventManager\EventManager;
 use T4webBase\InputFilter\InputFilterInterface;
@@ -8,7 +8,7 @@ use T4webBase\Domain\Repository\DbRepository;
 use T4webBase\Domain\Factory\EntityFactoryInterface;
 use T4webBase\Domain\Service\Create as BaseCreate;
 
-use Authorization\Service;
+use T4webAuthorization\Service;
 
 class Create extends BaseCreate
 {

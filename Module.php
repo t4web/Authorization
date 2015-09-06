@@ -113,11 +113,13 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Co
                 'T4webAuthorization\Auth\Form\Login' => 'T4webAuthorization\Factory\Auth\Form\LoginFactory',
                 'T4webAuthorization\Auth\InputFilter\Element\Uname' => 'T4webAuthorization\Factory\Auth\InputFilter\Element\UnameFactory',
 
+                'T4webAuthorization\Auth\Service\Finder' => 'T4webAuthorization\Factory\Auth\Service\FinderServiceFactory',
                 'T4webAuthorization\Auth\Service\Create' => 'T4webAuthorization\Factory\Auth\Service\CreateServiceFactory',
                 'T4webAuthorization\Auth\Service\Update' => 'T4webAuthorization\Factory\Auth\Service\UpdateServiceFactory',
-                'T4webAuthorization\Auth\Service\Finder' => 'T4webAuthorization\Factory\Auth\Service\FinderServiceFactory',
-                'Authorization\Auth\Service\PasswordRemind' => 'Authorization\Factory\Auth\Service\PasswordRemindServiceFactory',
-                'Authorization\Auth\Form\ChangePassword' => 'Authorization\Factory\Auth\Form\ChangePasswordFactory',
+
+                'T4webAuthorization\Auth\Service\PasswordRemind' => 'T4webAuthorization\Factory\Auth\Service\PasswordRemindServiceFactory',
+                'T4webAuthorization\Auth\Form\PasswordChange' => 'T4webAuthorization\Factory\Auth\Form\PasswordChangeFactory',
+                'T4webAuthorization\Controller\ViewModel\AjaxViewModel' => 'T4webAuthorization\Factory\Controller\ViewModel\AjaxViewModelFactory',
 
             ],
             'invokables' => [
@@ -126,7 +128,7 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Co
                 'T4webAuthorization\Auth\InputFilter\Update' => 'T4webAuthorization\Auth\InputFilter\Update',
                 'T4webAuthorization\Controller\ViewModel\User\IndexViewModel' => 'T4webAuthorization\Controller\ViewModel\User\IndexViewModel',
                 'Authorization\Auth\Form\PasswordRemind',
-                'Authorization\Auth\InputFilter\ChangePassword' => 'Authorization\Auth\InputFilter\ChangePassword',
+                'T4webAuthorization\Auth\InputFilter\PasswordChange' => 'T4webAuthorization\Auth\InputFilter\PasswordChange',
                 'Authorization\Controller\ViewModel\User\PasswordViewModel' => 'Authorization\Controller\ViewModel\User\PasswordViewModel',
             ],
         ];
@@ -147,8 +149,8 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Co
             ],
             'invokables' => [
                 'T4webAuthorization\Controller\User\Index' => 'T4webAuthorization\Controller\User\IndexController',
-                'Authorization\Controller\User\Password' => 'Authorization\Controller\User\PasswordController',
-                'Authorization\Controller\Admin\AuthAjax' => 'Authorization\Controller\Admin\AuthAjaxController',
+                'T4webAuthorization\Controller\User\Password' => 'T4webAuthorization\Controller\User\PasswordController',
+                'T4webAuthorization\Controller\User\AuthAjax' => 'T4webAuthorization\Controller\User\AuthAjaxController',
             ],
         ];
     }

@@ -1,13 +1,13 @@
 <?php
 
-namespace Authorization\Auth\Service;
+namespace T4webAuthorization\Auth\Service;
 
 use Zend\EventManager\EventManager;
 use T4webBase\InputFilter\InputFilterInterface;
 use T4webBase\Domain\Repository\DbRepository;
 use T4webBase\Domain\Service\Update as BaseUpdate;
 use T4webBase\Domain\Criteria\Factory as CriteriaFactory;
-use Authorization\Service;
+use T4webAuthorization\Service;
 
 class Update extends BaseUpdate
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Authorization\Auth\InputFilter;
+namespace T4webAuthorization\Auth\InputFilter;
 
 use T4webBase\InputFilter\InputFilter;
 use T4webBase\InputFilter\Element\Id;

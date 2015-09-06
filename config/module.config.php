@@ -50,12 +50,12 @@ return [
                     ]
                 ]
             ],
-            'admin-authorization-ajax-auth' => [
+            'user-authorization-ajax-auth' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => '/admin/authorization/auth/ajax/:action[/:id]',
+                    'route' => '/user/auth/ajax/:action[/:id]',
                     'defaults' => [
-                        '__NAMESPACE__' => 'T4webAuthorization\Controller\Admin',
+                        '__NAMESPACE__' => 'T4webAuthorization\Controller\User',
                         'controller' => 'AuthAjax',
                         'action' => 'change-password',
                     ],
@@ -110,9 +110,9 @@ return [
                 },
             ],
         ],
-        'Authorization\Controller\User\PasswordController' => [
+        'T4webAuthorization\Controller\User\PasswordController' => [
             'remindAction' => [
-                'request',
+                'Request',
                 'Authorization\Auth\Form\PasswordRemind',
                 'Authorization\Auth\Service\PasswordRemind',
                 function ($serviceLocator) {
@@ -121,7 +121,7 @@ return [
                 'Authorization\Controller\ViewModel\User\PasswordViewModel',
             ],
             'changePasswordAction' => [
-                'request',
+                'Request',
                 'Authorization\Auth\Form\ChangePassword',
                 'T4webUsers\User\Service\Finder',
                 'Authorization\Auth\Service\PasswordRemind',
@@ -131,21 +131,16 @@ return [
                 'Authorization\Controller\ViewModel\User\PasswordViewModel',
             ],
         ],
-        'T4webAuthorization\Controller\Admin\AuthAjaxController' => [
+        'T4webAuthorization\Controller\User\AuthAjaxController' => [
             'changePasswordAction' => [
                 'Request',
-                'Response',
-                'Authorization\Auth\Form\ChangePassword',
+                'T4webAuthorization\Service',
+                'T4webAuthorization\Auth\Form\PasswordChange',
                 'Authorization\Auth\Service\Finder',
                 'Authorization\Auth\Service\Update',
-                'Authorization\Controller\ViewModel\Admin\AjaxViewModel',
+                'T4webAuthorization\Controller\ViewModel\AjaxViewModel',
             ],
-            'logoutAction' => [
-                'Authorization\Service',
-                function ($serviceLocator) {
-                    return $serviceLocator->get('ControllerPluginManager')->get('redirect');
-                },
-            ],
+
         ],
     ],
     'db' => [
@@ -168,7 +163,7 @@ return [
                 'field' => 'id',
                 'buildMethod' => 'addFilterEqual'
             ],
-            'Uname' => [
+            'uname' => [
                 'table' => 'auth',
                 'field' => 'uname',
                 'buildMethod' => 'addFilterEqual'
