@@ -165,8 +165,9 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Co
     {
         return [
             'invokables' => [
-                'auth' => 'T4webAuthorization\View\Helper\Auth',
-            ],
+                'authService' => 'T4webAuthorization\View\Helper\AuthService',
+            ]
         ];
     }
+
 }

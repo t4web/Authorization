@@ -6,7 +6,7 @@ use Zend\View\Helper\AbstractHelper;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
 
-class Auth extends AbstractHelper implements ServiceLocatorAwareInterface
+class AuthService extends AbstractHelper implements ServiceLocatorAwareInterface
 {
 
     use ServiceLocatorAwareTrait;
@@ -26,7 +26,6 @@ class Auth extends AbstractHelper implements ServiceLocatorAwareInterface
      */
     public function __invoke()
     {
-
         /** @var \T4webAuthorization\Service $authService */
         $authService = $this->getServiceLocator()->get('T4webAuthorization\Service');
 
